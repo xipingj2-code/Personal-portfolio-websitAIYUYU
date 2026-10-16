@@ -1,0 +1,30 @@
+// Use the actual story assets, not the website's personal mascot.
+const storyImage=document.querySelector('#film .film-feature > img');
+const storyVideo=document.createElement('video');storyVideo.className='story-video';storyVideo.controls=true;storyVideo.preload='none';storyVideo.playsInline=true;storyVideo.poster=storyImage.getAttribute('src');storyVideo.src='assets/seed-film.mp4';storyVideo.setAttribute('aria-label','播放原创短片《种子的远方》');storyImage.replaceWith(storyVideo);
+const process=document.querySelector('#film .film-process');process.classList.add('turnaround-layout');const character=process.querySelector('figure:nth-child(2) img');character.src='assets/seed-turnaround.jpg';character.alt='《种子的远方》蒲公英女孩正面、侧面、背面三视图';process.querySelector('figure:nth-child(2) figcaption').textContent='人物三视图 / 固定角色造型与后续镜头的视觉依据';
+
+const brand=document.querySelector('#brand');
+const original=document.createElement('section');original.className='panel chapter dark';original.innerHTML=brand.innerHTML;
+const dialog=document.createElement('dialog');dialog.className='case-dialog';dialog.id='brand-dialog';dialog.setAttribute('aria-labelledby','brand-dialog-title');
+dialog.innerHTML=`<div class="dialog-shell"><header class="dialog-head"><h2 id="brand-dialog-title">品牌与活动 / 完整项目档案</h2><button class="dialog-close" type="button" autofocus>关闭 ×</button></header><div class="dialog-layout"><nav class="dialog-rail" aria-label="案例内部导航"></nav><div class="dialog-scroll" tabindex="0" aria-label="上下滚动查看项目作品"></div></div></div>`;
+document.body.append(dialog);
+const scroll=dialog.querySelector('.dialog-scroll'),rail=dialog.querySelector('.dialog-rail');scroll.append(original);
+function wrapTopic(elements,id,title){const group=document.createElement('div');group.className='case-topic';group.id=id;elements[0].before(group);const heading=document.createElement('h3');heading.className='topic-name';heading.textContent=title;group.append(heading,...elements);return group}
+wrapTopic([original.querySelector('.sectionhead'),original.querySelector('.notes')],'brand-overview','01 / 项目概览');
+wrapTopic([original.querySelector('.brand-pair')],'brand-character','02 / IP形象与表情');
+wrapTopic([original.querySelector('.launch')],'brand-launch','03 / 发布会与传播');
+wrapTopic([original.querySelector('.brand-bottom')],'brand-extensions','04 / 数字与周边应用');
+const extras=document.createElement('div');extras.className='case-topic';extras.id='brand-more';extras.innerHTML=`<h3 class="topic-name">05 / 更多相关作品</h3><div class="extra-gallery"><figure><img src="assets/brand-edm.png" alt="发布会EDM宣传原稿" loading="lazy"><figcaption class="brand-caption">发布会 / EDM宣传</figcaption></figure><figure><img src="assets/brand-table.png" alt="发布会桌卡原稿" loading="lazy"><figcaption class="brand-caption">发布会 / 桌卡</figcaption></figure><figure><img src="assets/brand-bag.png" alt="发布会手提袋原稿" loading="lazy"><figcaption class="brand-caption">发布会 / 手提袋</figcaption></figure><figure><img src="assets/brand-web-full.jpg" alt="图谱寻才系统完整网页原稿" loading="lazy"><figcaption class="brand-caption">数字应用 / 产品网页</figcaption></figure><figure><img src="assets/brand-expression.gif" alt="企业IP棒棒哒动态表情原稿" loading="lazy"><figcaption class="brand-caption">日常传播 / 动态表情</figcaption></figure></div><p class="source-note">以上为原始设计及应用示意。未使用年会照片冒充发布会现场。</p>`;original.append(extras);
+const topics=[...original.querySelectorAll('.case-topic')];const reduce=matchMedia('(prefers-reduced-motion:reduce)');
+function go(i){scroll.scrollTo({top:topics[i].offsetTop-original.offsetTop,behavior:reduce.matches?'instant':'smooth'})}
+topics.forEach((topic,i)=>{const b=document.createElement('button');b.type='button';b.textContent=topic.querySelector('.topic-name').textContent;b.addEventListener('click',()=>go(i));rail.append(b)});
+const separator=document.createElement('span');separator.className='rail-separator';rail.append(separator);
+for(const [label,dir] of [['↑ 向上浏览',-1],['↓ 向下浏览',1]]){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>scroll.scrollBy({top:dir*scroll.clientHeight*.75,behavior:reduce.matches?'instant':'smooth'}));rail.append(b)}
+const progress=document.createElement('div');progress.className='dialog-progress';rail.append(progress);
+function updateProgress(){const max=scroll.scrollHeight-scroll.clientHeight;progress.textContent=`${Math.round(max>0?scroll.scrollTop/max*100:100)}% / 项目浏览`;let active=0;topics.forEach((t,i)=>{if(t.offsetTop-original.offsetTop<=scroll.scrollTop+80)active=i});[...rail.querySelectorAll('button')].slice(0,5).forEach((b,i)=>b.setAttribute('aria-current',String(i===active)))}scroll.addEventListener('scroll',updateProgress,{passive:true});
+brand.innerHTML=`<div class="sectionhead"><div><h2><span class="number">05</span>品牌与活动 / 一套IP的完整延展</h2><p>企业IP → 发布会主视觉 → 数字传播与物料应用 · 任职项目</p></div><div class="display">BRAND</div></div><div class="brand-entry"><button id="open-brand" class="brand-preview" type="button" aria-haspopup="dialog" aria-label="点击图片，在本站弹窗查看品牌与活动完整项目"><img src="assets/corporate.jpg" alt="图谱天下发布会主视觉"><span class="brand-preview-label">点击图片 · 展开作品</span></button><div><h3>从一个角色，到完整品牌体验。</h3><p>查看企业IP、发布会传播、数字页面与周边物料。完整作品在弹窗内连续浏览。</p><p class="brand-open-hint"><span aria-hidden="true">←</span> 点击左侧图片，在本站展开完整作品</p></div></div>`;
+let returnFocus;let previousOverflow;
+function openBrand(){returnFocus=document.activeElement;previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();scroll.scrollTop=0;updateProgress()}
+document.querySelector('#open-brand').addEventListener('click',openBrand);
+dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+dialog.addEventListener('close',()=>{document.body.style.overflow=previousOverflow||'';returnFocus?.focus({preventScroll:true})});

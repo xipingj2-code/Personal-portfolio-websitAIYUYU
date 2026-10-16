@@ -1,0 +1,19 @@
+/* Small independent refinements; retain existing palette, layout, artwork and content. */
+.wrap>.nav .navlinks{position:relative;isolation:isolate;gap:18px}
+.wrap>.nav .navlinks>a{position:relative;z-index:1}
+.wrap>.nav .navlinks>a:not(.button){padding:6px 12px;border-radius:99px;transition:color .2s}
+.wrap>.nav .navlinks>a:not(.button):hover,.wrap>.nav .navlinks>a[aria-current=location]:not(.button){color:#49338f}
+.nav-location-pill{position:absolute;left:0;top:0;z-index:0;border-radius:99px;background:#ffffffa6;box-shadow:inset 0 0 0 1px #ffffff80;pointer-events:none;transition:transform .28s cubic-bezier(.22,1,.36,1),width .28s,height .28s,opacity .2s;opacity:0}
+.wrap .button{transition:background .2s,box-shadow .2s,transform .2s}
+.wrap .button:active{transform:translateY(1px)}
+.wrap a:focus-visible,.wrap button:focus-visible{outline:3px solid #a98ce9;outline-offset:4px}
+.wrap .film-card>a,.wrap .footer>a{text-underline-offset:4px;text-decoration-thickness:1px;transition:color .2s}
+.wrap .film-card>a:hover,.wrap .footer>a:hover{text-decoration:underline}
+.wrap .brand-caption,.wrap .source-note{line-height:1.8}
+.wrap .chapter>.sectionhead p{max-width:70ch;line-height:1.8}
+.case-dialog[open]{animation:case-open-subtle .2s cubic-bezier(.22,1,.36,1)}
+@keyframes case-open-subtle{from{opacity:.5;translate:0 6px}to{opacity:1;translate:0 0}}
+@media(hover:hover) and (pointer:fine){.wrap .button:hover{transform:translateY(-2px);box-shadow:0 5px 14px #35225920}.wrap .button:hover .button-arrow{transform:translate(2px,-1px)}}
+.button-arrow{display:inline-block;transition:transform .2s}
+@media(max-width:800px){.wrap>.nav .navlinks{gap:3px}.wrap>.nav .navlinks>a:not(.button){padding:6px 7px}}
+@media(prefers-reduced-motion:reduce){.nav-location-pill,.wrap .button,.button-arrow{transition:none!important}.case-dialog[open]{animation:none}.wrap .button:hover{transform:none}}

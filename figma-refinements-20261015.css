@@ -1,0 +1,118 @@
+/* Screenshot-led detail revision. Preserve the existing palette, video and case interactions. */
+.wrap>.nav{height:56px;top:8px;margin:8px 0 20px;padding:0 24px;border-radius:999px}
+.wrap>.nav .nav-wordmark{font:750 20px/1.2 "Segoe UI",Arial,sans-serif;letter-spacing:-.4px;color:var(--purple)}
+.wrap>.nav .navlinks>.button{min-height:38px;padding:0 20px;font-size:14px;gap:3px}
+.glow-control{bottom:calc(134px + env(safe-area-inset-bottom,0px))}
+.hero .hero-copy{width:47%;min-height:750px;padding:104px 20px 48px 48px;justify-content:flex-start}
+.hero .hero-copy .hero-greeting{font-size:17px;line-height:26px;transform:none;margin:0 0 32px;gap:5px}
+.hero .hero-copy h1.hero-english-title{font-family:"Segoe UI",Arial,sans-serif;font-size:40px;font-weight:400;line-height:1.42;letter-spacing:0;white-space:normal;transform:none;margin:0 0 68px;color:var(--purple)}
+.hero .hero-copy h1.hero-english-title .hero-title-line{display:block;margin:0;color:inherit;font:inherit;letter-spacing:inherit;width:max-content;max-width:100%}
+.hero .hero-copy h1.hero-english-title .hero-title-line:first-child{font-size:76px;line-height:1.12;font-weight:750;letter-spacing:-2.6px;margin-bottom:8px}
+.hero .hero-copy h1.hero-english-title .hero-title-char{display:inline-block;white-space:pre;font:inherit;letter-spacing:inherit;margin:0;color:inherit}
+.hero .hero-copy h2{font-size:23px;font-weight:500;line-height:1.35}
+.hero .hero-copy .role{font-size:15px;margin:6px 0 0;line-height:1.6}
+.hero .hero-copy .scope{font-size:14px;line-height:1.8;margin:1px 0 24px}
+.hero .hero-copy>.button{min-height:48px;padding:0 25px;font-size:15px}
+.hero .hero-copy .contact-inline{display:flex;align-items:center;gap:40px;flex-wrap:wrap;font-size:13px;line-height:1.9;margin-top:12px}
+.hero .hero-copy .contact-inline>a{white-space:nowrap}
+.hero .hero-copy .contact-inline br{display:none}
+.about-grid .edu{padding-right:44px}
+.about-grid .edu-row>span{text-align:right}
+.experience-panel>.sectionhead{align-items:flex-end}
+.experience-panel>.sectionhead>.display{font-size:34px;line-height:1.3;letter-spacing:-1.7px;align-self:flex-end}
+#index>.sectionhead{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start}
+#index>.sectionhead>.display{font:800 58px/1.05 "Arial Narrow",Arial,sans-serif;letter-spacing:-3.5px;align-self:start;margin-top:25px}
+/* Consistent chapter heading grid: the subtitle starts beneath its title, not its number. */
+main>.chapter>.sectionhead{align-items:flex-start}
+main>.chapter>.sectionhead>div:first-child{min-width:0}
+main>.chapter>.sectionhead h2{display:flex;align-items:center;font-size:32px;line-height:1.3;letter-spacing:-1px;gap:22px}
+main>.chapter>.sectionhead .number{flex:none;min-width:40px;text-align:center;margin-right:0;padding:7px 11px;line-height:1.2}
+main>.chapter>.sectionhead p{padding-left:62px;margin-top:12px}
+main>.chapter>.sectionhead>.display{flex:none;font-size:34px;line-height:1.3;letter-spacing:-1.7px;align-self:flex-start;margin-top:0}
+main>#visual .posters .poster img{padding:0;background:transparent;border-radius:16px}
+main>#visual .more-posters{max-width:860px;margin:28px auto 0;gap:62px;grid-template-columns:repeat(3,minmax(0,1fr))}
+main>#visual .more-posters .image-open{width:146.25px;height:260px;max-width:100%;margin-inline:auto;border-radius:16px;overflow:hidden}
+main>#visual .more-posters .image-open img{width:100%;height:100%;padding:0;background:transparent;border-radius:inherit;object-fit:contain}
+main>#visual .more-posters .image-open .preview-hint{right:8px;bottom:8px;font-size:11px;padding:4px 8px;max-width:calc(100% - 16px);white-space:nowrap}
+main>#visual .more-posters p{text-align:center;white-space:nowrap;font-size:13px}
+main>#visual>.source-note{text-align:center;margin-top:24px}
+main>#ip .ip-lead h3{font:700 38px/1.25 "Segoe UI",Arial,sans-serif;letter-spacing:-.6px;margin-bottom:18px}
+main>#ip .ip-lead h2{line-height:1.4;letter-spacing:-.6px}
+main>#ip .ip-lead p{line-height:1.8}
+main>#ip .ip-lead img{border-radius:4px}
+/* The portrait and square artwork use a deliberately asymmetric study layout. */
+main>#ip .ip-grid{grid-template-columns:minmax(0,.43fr) minmax(0,1fr);align-items:start;gap:22px}
+main>#ip .ip-grid figure{min-width:0}
+main>#ip .ip-grid .image-open{height:clamp(440px,52vw,680px);border-radius:18px;overflow:hidden;background:var(--pale)}
+main>#ip .ip-grid .image-open img{height:100%;width:100%;padding:12px;object-fit:contain;border-radius:inherit}
+main>#ip .ip-grid figure:first-child .preview-hint{right:24px;bottom:16px}
+main>#film .film-feature .tagline{font-size:13px;margin:0 0 4px}
+main>#film .film-feature>div{text-align:left;padding-left:0}
+main>#film .film-feature .tagline,main>#film .film-feature h3,main>#film .film-feature p{margin-left:0;padding-left:0}
+main>#film .film-feature h3{text-indent:-.5em}
+main>#film .film-feature p{text-indent:0}
+main>#film .film-card>h3{font-size:22px;line-height:1.5;margin:24px 0 22px}
+main>#film .film-card>p{margin-bottom:0;line-height:1.75}
+main>#film .film-card>.film-production{color:#efedf8;font-size:14px;margin:0 0 8px;overflow-wrap:anywhere}
+main>#film .film-watch{align-items:flex-end;padding-top:12px;min-height:132px}
+main>#film .watch-qr{display:flex;flex-direction:row-reverse;gap:8px;align-items:flex-end;width:auto;max-width:75%}
+main>#film .watch-qr img{flex:none}
+main>#film .watch-qr figcaption{font-size:12px;line-height:1.4;color:#f5f3fa;text-align:right;white-space:nowrap;margin:0}
+main>#brand .brand-entry h3{font-size:28px;line-height:1.4}
+main>#brand .brand-entry p{line-height:1.8}
+main>#contact h2{font-size:40px;line-height:1.4;letter-spacing:-1px}
+#brand-dialog #brand-overview>.topic-name{font-size:24px;line-height:1.4;margin:0 0 24px}
+#brand-dialog #brand-overview>.sectionhead{align-items:flex-start;gap:24px}
+#brand-dialog #brand-overview .sectionhead>div:first-child{min-width:0}
+#brand-dialog #brand-overview .sectionhead h2{display:flex;align-items:center;gap:22px;font-size:32px;line-height:1.3;letter-spacing:-1px}
+#brand-dialog #brand-overview .sectionhead .number{flex:none;min-width:40px;margin:0;padding:7px 11px;line-height:1.2;text-align:center}
+#brand-dialog #brand-overview .sectionhead p{margin-top:12px;padding-left:62px;font-size:15px;line-height:1.8}
+#brand-dialog #brand-overview .sectionhead>.display{font-size:34px;line-height:1.3;letter-spacing:-1.7px;align-self:flex-start}
+@media(max-width:1100px) and (min-width:801px){.hero .hero-copy{width:52%;padding-left:38px}.hero .hero-copy h1.hero-english-title{font-size:34px}.hero .hero-copy h1.hero-english-title .hero-title-line:first-child{font-size:52px;letter-spacing:-2px}.hero .hero-copy .contact-inline{gap:4px 18px}.experience-panel>.sectionhead>.display{font-size:28px}}
+@media(max-width:800px){
+ .wrap>.nav{height:54px;min-height:54px;top:8px;margin:8px 0 16px;padding:0 14px;gap:8px;flex-direction:row;align-items:center}
+ .wrap>.nav .nav-wordmark{font-size:18px;letter-spacing:-.5px}
+ .wrap>.nav .navlinks{gap:1px;font-size:12px;width:auto;flex:none}
+ .wrap>.nav .navlinks>a:not(.button){padding:6px 5px}
+ .wrap>.nav .navlinks>.button{min-height:34px;font-size:12px;padding:0 11px;gap:2px}
+ .hero .hero-copy{width:100%;min-height:0;padding:40px 26px 32px}
+ .hero .hero-copy .hero-greeting{font-size:14px;line-height:24px;margin-bottom:26px}
+ .hero .hero-copy h1.hero-english-title{font-size:30px;line-height:1.4;margin-bottom:34px}
+ .hero .hero-copy h1.hero-english-title .hero-title-line:first-child{font-size:43px;letter-spacing:-1.8px;line-height:1.12;margin-bottom:6px}
+ .hero .hero-copy h2{font-size:21px}
+ .hero .hero-copy .scope{font-size:12px;margin:2px 0 20px}
+ .hero .hero-copy .contact-inline{font-size:12px;gap:2px 20px;margin-top:15px}
+ .about-grid .edu{padding-right:30px}
+ .experience-panel>.sectionhead>.display{display:block;font-size:20px;letter-spacing:-1px;line-height:1.5}
+ #index>.sectionhead{gap:12px}
+ #index>.sectionhead>.display{display:block;font-size:40px;letter-spacing:-2.5px;margin-top:23px}
+ main>.chapter>.sectionhead{gap:12px}
+ main>.chapter>.sectionhead h2{font-size:24px;gap:12px;letter-spacing:-.8px}
+ main>.chapter>.sectionhead .number{min-width:32px;padding:6px 9px;font-size:12px}
+ main>.chapter>.sectionhead p{padding-left:44px;font-size:13px}
+ main>.chapter>.sectionhead>.display{display:none}
+ main>#visual .more-posters{max-width:100%;gap:24px;grid-template-columns:1fr}
+ main>#visual .more-posters .image-open{width:185.625px;height:330px}
+ main>#visual .more-posters p{white-space:normal}
+ main>#ip .ip-lead h3{font-size:32px}
+ main>#ip .ip-grid{grid-template-columns:1fr}
+ main>#ip .ip-grid .image-open{height:auto}
+ main>#ip .ip-grid .image-open img{height:auto;padding:12px}
+ main>#ip .ip-grid figure:first-child .image-open{width:min(100%,320px);margin-inline:auto}
+ main>#ip .ip-grid figure:first-child figcaption{text-align:center}
+ main>#ip .ip-grid figure:first-child .preview-hint{right:16px}
+ main>#film .film-card>h3{font-size:20px;margin-bottom:16px}
+ main>#film .film-watch{gap:8px;flex-wrap:wrap}
+ main>#film .watch-qr{margin-left:auto;max-width:100%}
+ main>#film .watch-qr figcaption{font-size:11px}
+ main>#film .film-watch>a{font-size:12px}
+ main>#film .film-card>.film-production{font-size:12px}
+ main>#brand .brand-entry h3{font-size:24px}
+ main>#contact h2{font-size:29px}
+ #brand-dialog #brand-overview>.topic-name{font-size:20px;margin-bottom:20px}
+ #brand-dialog #brand-overview .sectionhead h2{font-size:24px;gap:12px;letter-spacing:-.8px}
+ #brand-dialog #brand-overview .sectionhead .number{min-width:32px;padding:6px 9px;font-size:12px}
+ #brand-dialog #brand-overview .sectionhead p{padding-left:44px;font-size:13px}
+ #brand-dialog #brand-overview .sectionhead>.display{display:none}
+}
+@media(max-width:420px){.wrap>.nav .nav-wordmark{font-size:16px}.wrap>.nav .navlinks{font-size:11px}.wrap>.nav .navlinks>a:not(.button){padding:6px 4px}.wrap>.nav .navlinks>.button{padding:0 9px;font-size:11px}.hero .hero-copy h1.hero-english-title .hero-title-line:first-child{font-size:36px;letter-spacing:-1.4px}.hero .hero-copy h1.hero-english-title{font-size:28px}.experience-panel>.sectionhead>.display{font-size:18px}.about-grid .edu{padding-left:20px;padding-right:30px}.about-grid .edu-row{grid-template-columns:1fr;gap:4px}.about-grid .edu-row>span{text-align:left}}
