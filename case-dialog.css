@@ -7,7 +7,7 @@
 .brand-entry p{color:#b3b5c6;font-size:15px;margin-bottom:24px}
 .case-dialog{position:fixed;inset:20px;margin:auto;width:min(1320px,calc(100% - 40px));height:calc(100dvh - 40px);max-height:none;max-width:none;border:1px solid rgba(255,255,255,.45);padding:0;border-radius:28px;overflow:hidden;background:transparent;color:#f4f2ff;box-shadow:0 25px 90px #14102680}
 .case-dialog::backdrop{background:rgba(18,13,37,.64);backdrop-filter:blur(10px)}
-.case-dialog:before{content:'';position:absolute;inset:-30px;z-index:0;background:url('assets/hero-still.png') center/cover;filter:blur(22px);pointer-events:none}
+.case-dialog:before{content:'';position:absolute;inset:-30px;z-index:0;background:url('assets/optimized/hero-still-960.webp') center/cover;filter:blur(22px);pointer-events:none}
 .case-dialog:after{content:'';position:absolute;inset:0;background:rgba(23,20,43,.78);z-index:0;pointer-events:none}
 .dialog-shell{position:relative;z-index:1;height:100%;display:grid;grid-template-rows:78px 1fr}
 .dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid #ffffff26;background:#19172fa6}

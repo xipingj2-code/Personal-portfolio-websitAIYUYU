@@ -6,10 +6,13 @@
  const button=oldButton.cloneNode(true);oldButton.replaceWith(button); // Remove obsolete V16 listener.
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
  v.pause();v.removeAttribute('autoplay');v.loop=false;v.muted=true;v.defaultMuted=true;v.playsInline=true;
- v.poster='assets/hero-still.png';v.src='assets/hero-20261014.mp4';v.preload=reduce.matches?'none':'metadata';v.load();
- let userPaused=reduce.matches,finished=false,inView=true;
+ v.poster=window.portfolioMedia.poster('assets/hero-still.png');v.preload='none';
+ const connection=navigator.connection;
+ const limited=connection?.saveData||/^(slow-)?2g$/.test(connection?.effectiveType||'');
+ const videoSource=matchMedia('(max-width:800px)').matches?'assets/hero-mobile-20261016.mp4':'assets/hero-web-20261016.mp4';
+ let userPaused=reduce.matches||limited,finished=false,inView=true;
  function label(){button.textContent=finished?'重播 ↻':v.paused?'播放 ▶':'暂停 Ⅱ';button.setAttribute('aria-label',finished?'重播首屏视频':v.paused?'播放首屏视频':'暂停首屏视频')}
- async function play(){try{await v.play()}catch(e){/* Keep the poster and visible play control if autoplay is blocked. */}label()}
+ async function play(){if(!v.getAttribute('src')){v.src=videoSource;v.load()}try{await v.play()}catch(e){/* Keep the poster and visible play control if autoplay is blocked. */}label()}
  button.addEventListener('click',()=>{if(v.paused||finished){if(finished){v.currentTime=0;finished=false}userPaused=false;play()}else{userPaused=true;v.pause();label()}});
  v.addEventListener('ended',()=>{finished=true;label()});v.addEventListener('play',label);v.addEventListener('pause',label);v.addEventListener('error',()=>{v.style.visibility='hidden';button.textContent='视频暂不可用';button.disabled=true});
  const observer=new IntersectionObserver(([entry])=>{inView=entry.isIntersecting;if(!inView)v.pause();else if(!userPaused&&!finished&&!document.hidden)play()},{threshold:.12});observer.observe(v);

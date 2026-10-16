@@ -1,0 +1,8 @@
+/* Mobile-only caption layout; preserve the desktop composition. */
+@media(max-width:800px){
+ .about-grid .profile-art{min-height:0;height:auto;display:flex;flex-direction:column;background:var(--pale)}
+ .about-grid .profile-art>img{position:static;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%}
+ .about-grid .profile-caption{position:static;width:100%;padding:16px 18px;background:var(--pale);flex:none}
+ .about-grid .profile-caption strong{font-size:18px;line-height:1.4}
+ .about-grid .profile-caption .muted{margin-top:5px;line-height:1.6}
+}

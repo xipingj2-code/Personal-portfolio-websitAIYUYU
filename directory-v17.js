@@ -26,5 +26,11 @@ cards.forEach((card,i)=>{
  button.addEventListener('click',()=>selectCard(i,true));controls.append(button);
 });
 controls.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();const next=(selected+(e.key==='ArrowRight'?1:-1)+cards.length)%cards.length;selectCard(next,true);controls.children[next].focus()}});
-selectCard(2);
+// Mobile uses native horizontal scrolling; keep the highlighted number in sync
+// without cancelling vertical page gestures or ordinary card taps.
+const fan=directory.querySelector('.fan');
+function updateHint(){hint.textContent=mobile.matches?'左右滑动翻阅卡片 · 点击卡片进入案例':'悬停或选择编号展开卡片 · 点击卡片进入案例'}
+let scrollFrame=0;
+fan.addEventListener('scroll',()=>{if(!mobile.matches||scrollFrame)return;scrollFrame=requestAnimationFrame(()=>{scrollFrame=0;const center=fan.getBoundingClientRect().left+fan.clientWidth/2;let closest=0,distance=Infinity;cards.forEach((card,i)=>{const r=card.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-center);if(d<distance){distance=d;closest=i}});if(closest!==selected)selectCard(closest)})},{passive:true});
+mobile.addEventListener('change',updateHint);updateHint();selectCard(mobile.matches?0:2);
 const nav=document.querySelector('.nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
